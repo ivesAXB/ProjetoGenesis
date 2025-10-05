@@ -3,3 +3,8 @@ version: 1.0.0
 main: br.com.seunome.projetogenesis.ProjetoGenesis
 api-version: '1.20'
 author: IvesAXB
+# Adicione esta seção
+commands:
+  ia:
+    description: Comando principal para controlar a IA.
+    usage: /<command>

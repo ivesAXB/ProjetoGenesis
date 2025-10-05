@@ -12,3 +12,11 @@ public final class ProjetoGenesis extends JavaPlugin {
         getLogger().info("O ProjetoGenesis foi desativado.");
     }
 }
+
+@Override
+public void onEnable() {
+    getLogger().info("O ProjetoGenesis foi ativado com sucesso!");
+
+    // Adicione esta linha para registrar o executor do comando
+    this.getCommand("ia").setExecutor(new ComandoIA());
+}
