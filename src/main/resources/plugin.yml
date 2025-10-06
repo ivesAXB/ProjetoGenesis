@@ -1,0 +1,9 @@
+name: ProjetoGenesis
+version: 1.0.0
+main: br.com.ivesaxb.projetogenesis.ProjetoGenesis
+api-version: '1.21'
+author: ivesAXB # Troque pelo seu nome
+commands:
+  ia:
+    description: Comando principal para controlar a IA Gênesis.
+    usage: /ia <spawn | remove>
