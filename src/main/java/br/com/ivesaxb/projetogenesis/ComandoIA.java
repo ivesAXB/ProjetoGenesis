@@ -8,7 +8,7 @@ import org.bukkit.entity.Entity;
 import org.bukkit.entity.EntityType;
 import org.bukkit.entity.Mob;
 import org.bukkit.entity.Player;
-import org.bukkit.entity.IronGolem;
+import org.bukkit.entity.Zombie;
 import org.bukkit.scheduler.BukkitTask;
 import org.jetbrains.annotations.NotNull;
 
@@ -41,13 +41,19 @@ public class ComandoIA implements CommandExecutor {
                 player.sendMessage("§eO NPC Gênesis já existe!"); return true;
             }
             Location spawnLocation = player.getLocation();
-            IronGolem golemNpc = (IronGolem) spawnLocation.getWorld().spawnEntity(spawnLocation, EntityType.IRON_GOLEM);
-            golemNpc.setCustomName("§b§lGênesis");
-            golemNpc.setCustomNameVisible(true);
-            golemNpc.setSilent(true); // Opcional, para não fazer sons
-            golemNpc.setInvulnerable(true);
-            plugin.setNpc(golemNpc); // Salva a referência do golem
-            player.sendMessage("§aNPC Gênesis (Golem) foi criado!");
+
+            // Criamos um Zumbi com a IA 100% LIGADA
+            Zombie zombieNpc = (Zombie) spawnLocation.getWorld().spawnEntity(spawnLocation, EntityType.ZOMBIE);
+
+            zombieNpc.setCustomName("§b§lGênesis");
+            zombieNpc.setCustomNameVisible(true);
+            zombieNpc.setSilent(true);
+            zombieNpc.setInvulnerable(true);
+
+            // NÃO USAMOS setAware(false) NEM setAI(false). Deixamos ele "vivo".
+
+            plugin.setNpc(zombieNpc);
+            player.sendMessage("§aNPC Gênesis (Zumbi Selvagem) foi criado!");
             return true;
         }
 
